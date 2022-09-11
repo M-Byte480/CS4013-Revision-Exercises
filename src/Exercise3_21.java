@@ -7,8 +7,6 @@ public class Exercise3_21 {
 
     public static void main(String[] args) {
         String[] days = {"Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
-        String[] months = {"March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "January", "Febrary"};
-
 
         while(true){
             try{
@@ -32,7 +30,6 @@ public class Exercise3_21 {
                 break;
             }catch(Exception e){
                 System.out.println("\nInvalid Input\n" + e + "\n");
-                continue;
             }
         }
     }

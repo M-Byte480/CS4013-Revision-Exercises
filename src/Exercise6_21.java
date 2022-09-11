@@ -8,10 +8,6 @@ public class Exercise6_21 {
 
     public static void pattern(int numberOfBalls, int numberOfSlots){
         int[] ballsPerSlot = new int[numberOfSlots];
-//        int max = numberOfSlots;
-//        if(numberOfBalls > numberOfSlots){
-//            max = numberOfBalls;
-//        }
         int[][] slots = new int[numberOfBalls][numberOfSlots];
         double position;
         int leftOrRight;

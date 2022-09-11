@@ -7,8 +7,8 @@ public class Exercise6_13 {
         whileLoop:
         while(!gotNumber){
             randomNumber = (int) (Math.random() * 54 + 1);
-            for (int i = 0; i < numbers.length; i++) {
-                if(randomNumber == numbers[i]){
+            for (int number : numbers) {
+                if (randomNumber == number) {
                     continue whileLoop;
                 }
             }

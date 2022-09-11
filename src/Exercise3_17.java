@@ -1,42 +1,69 @@
-import java.io.*;
 import java.util.*;
 
 public class Exercise3_17 {
-    public static int randomNumber(){
+    /**
+     *
+     * @return a random number between 0 - 2
+     */
+    private static int randomNumber(){
         return (int) (Math.random()*3);
     }
-    // 0 scissors 1 rock 2 paper
-    public static String compare(int computer, int human){
+
+    /**
+     * 0 scissors 1 rock 2 paper
+     * @param computer Takes a computer generated argument
+     * @param human Takes a human generated arguement
+     * @return returns the winner!
+     */
+    private static String compare(int computer, int human){
+        String output = "The computer is ";
+        if(computer == 0){
+            output += "scissors.";
+        } else if (computer == 1) {
+            output += "rock.";
+        }else {
+            output+= "paper.";
+        }
+        output += " You are ";
+        if(human == 0){
+            output += "scissors ";
+        } else if (human == 1) {
+            output += "rock ";
+        }else{
+            output += "paper ";
+        }
+
         if(computer == human){
-            return "Draw";
+            output += "too. It is a draw.";
         } else if (computer == 0) {
             if(human == 1){
-                return "Human Wins";
+                output += ". You Win";
             }else{
-                return "Computer Wins";
+                output += ". Computer Wins";
             }
         } else if(computer == 1){
             if(human == 0){
-                return "Computer Wins";
+                output += ". Computer Win";
             }else{
-                return "Human Wins";
+                output += ". You Win";
             }
         }else{
             if(human == 0){
-                return "Human Wins";
+                output += ". You Win";
             }else{
-                return "Computer Wins";
+                output += ". Computer Wins";
             }
         }
+        return output;
     }
 
     public static void main(String[] args) {
 
-        Boolean gotResult = false;
+        boolean gotResult = false;
         while(!gotResult){
             try{
                 Scanner consoleInput = new Scanner(System.in);
-                System.out.print("Enter something:");
+                System.out.print("Scissors (0) Rock (1) Paper (2): ");
                 String userInput = consoleInput.nextLine();
                 int selection = Integer.parseInt(userInput);
                 if(selection < 0 || selection > 2){
@@ -44,9 +71,9 @@ public class Exercise3_17 {
                 }
                 int computerSelection = randomNumber();
                 String result = compare(computerSelection,selection);
+
                 System.out.println(result);
                 gotResult = true;
-                break;
             }catch(Exception e){
                 System.out.println("\nInvalid input!\nPlease enter SOmething");
             }

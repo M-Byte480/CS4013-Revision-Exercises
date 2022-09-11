@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Exercise5_5 {
     public static void displayLargestNumber(double num1, double num2, double num3){
         double max = num1;

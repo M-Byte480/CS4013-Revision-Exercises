@@ -1,6 +1,3 @@
-import java.sql.SQLOutput;
-import java.util.Arrays;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Exercise7_9 {
@@ -15,7 +12,8 @@ public class Exercise7_9 {
                    |  %s  |  %s  |  %s  |
                    |  %s  |  %s  |  %s  |
                    |  %s  |  %s  |  %s  |
-                   -------------------\n""";
+                   -------------------
+                   """;
         String[][] playerVSplayer = new String[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -38,7 +36,7 @@ public class Exercise7_9 {
                 System.out.printf("Enter a column (0, 1, 2) for Player %S: ", ((turn == 1) ? "X" : "O"));
                 column = terminal.nextInt();
                 playCount++;
-                if(playerVSplayer[row][column] == " "){
+                if(playerVSplayer[row][column].equals(" ")){
                     playerVSplayer[row][column] = ((turn == 1) ? "X" : "O");
                 }else{
                     System.out.println("Invalid input. Player must select a different cell.");
@@ -61,7 +59,7 @@ public class Exercise7_9 {
 
     /**
      * Takes a 2D array and returns it in 1D
-     * @param myArray
+     * @param myArray 2D String Array
      * @return 1D array
      */
     private static String[] convertArray(String[][] myArray){
@@ -82,7 +80,6 @@ public class Exercise7_9 {
      */
     private static int checkWinner(String[][] input){
         int winner = 0;
-        int emptyCellTracker = 9;
         for (int i = 0; i < 3; i++) {
             // Horizontal Permutations
             if(input[i][0].equals(input[i][1]) && input[i][2].equals(input[i][1])){
