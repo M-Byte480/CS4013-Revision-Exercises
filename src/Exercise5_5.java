@@ -1,4 +1,10 @@
 public class Exercise5_5 {
+    /**
+     * Prints out the highest double out of the 3 numbers
+     * @param num1 double to compare
+     * @param num2 double to compare
+     * @param num3 double to compare
+     */
     public static void displayLargestNumber(double num1, double num2, double num3){
         double max = num1;
         if(num2 > max) {
@@ -13,6 +19,10 @@ public class Exercise5_5 {
         System.out.println(max);
     }
 
+    /**
+     * Prints out the test cases.
+     * @param args
+     */
     public static void main(String[] args) {
         displayLargestNumber(1,2,3);    // 3.0
         displayLargestNumber(3,2,1);    // 3.0

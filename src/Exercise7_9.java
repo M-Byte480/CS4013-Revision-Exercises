@@ -14,43 +14,56 @@ public class Exercise7_9 {
                    |  %s  |  %s  |  %s  |
                    -------------------
                    """;
+        // Populates empty String array with single spaces
         String[][] playerVSplayer = new String[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 playerVSplayer[i][j] = " ";
             }
         }
+
         int winner = 0;
         int row;
         int column;
         int turn = 1;
         int playCount = 0;
 
+        // Print empty board
         System.out.printf(board, (Object[]) convertArray(playerVSplayer));
+        // The Java interpreter, interprets that I want to pass the array's elements as arguments
+        // but for clarification purposes I am converting it to varargs.
 
         while(winner == 0){
             try{
+
                 Scanner terminal = new Scanner(System.in);
                 System.out.printf("Enter a row (0, 1, 2) for Player %S: ", ((turn == 1) ? "X" : "O"));
                 row = terminal.nextInt();
                 System.out.printf("Enter a column (0, 1, 2) for Player %S: ", ((turn == 1) ? "X" : "O"));
                 column = terminal.nextInt();
-                playCount++;
+
+                playCount++; // If there has been 9 plays made, check for winners otherwise it's a draw
+
                 if(playerVSplayer[row][column].equals(" ")){
                     playerVSplayer[row][column] = ((turn == 1) ? "X" : "O");
                 }else{
                     System.out.println("Invalid input. Player must select a different cell.");
                     continue;
                 }
+
                 winner = checkWinner(playerVSplayer);
-                System.out.printf(board, (Object[]) convertArray(playerVSplayer));
+
+                System.out.printf(board, (Object[]) convertArray(playerVSplayer)); // Prints board with the move made
+
                 if(winner != 0){
                     System.out.printf("Player %S Won!\n", (winner == 1)? "X" :"O");
                 } else if (playCount == 9) {
                     System.out.println("Draw!");
                     winner = -1;
                 }
-                turn *= -1;
+
+                turn *= -1; // Change turn from X to O and O to X
+
             }catch (Exception e){
                 System.out.println("Something went wrong...\n");
             }
@@ -91,6 +104,7 @@ public class Exercise7_9 {
                 return winnerType(input[0][i]);
             }
         }
+        // Diagonal Permutations
         String center = input[1][1];
         if(input[0][0].equals(center) && input[2][2].equals(center)){
             return winnerType(center);

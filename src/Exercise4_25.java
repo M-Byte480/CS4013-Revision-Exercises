@@ -2,6 +2,11 @@ import java.util.Scanner;
 
 public class Exercise4_25 {
 
+    /**
+     * get the sum of the pattern (1) + (1 + 2) + (1 + 2 + 3) + ... + (1 + 2 + 3 + ... + n)
+     * @param n
+     * @return the Sum
+     */
     public static int sum(int n){
         int total = 0;
         for (int iteration = 0; iteration <= n; iteration++) {
@@ -12,17 +17,14 @@ public class Exercise4_25 {
         return total;
     }
 
+    /**
+     * Takes input of user through terminal
+     * @param args
+     */
     public static void main(String[] args) {
-        while(true) {
-            try {
-                System.out.print("Enter a number: ");
-                Scanner terminal = new Scanner(System.in);
-                int userInput = terminal.nextInt();
-                System.out.println("\n" + sum(userInput));
-                break;
-            } catch (Exception e) {
-                System.out.println("Please enter an integer\n");
-            }
-        }
+        System.out.print("Enter a number: ");
+        Scanner terminal = new Scanner(System.in);
+        int userInput = terminal.nextInt();
+        System.out.println("\n" + sum(userInput));
     }
 }
